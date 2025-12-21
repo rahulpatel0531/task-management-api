@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "771669a6-32fd-4c7a-81a2-3910413804b2",
+		"name": "Task Management Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14589210"
+	},
+	"item": [
+		{
+			"name": "Task Management",
+			"item": [
+				{
+					"name": "Create Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{user_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//   \"title\": \"\",\r\n//   \"description\": \"\",\r\n//   \"status\": \"\",  // ['pending', 'in-progress', 'completed']\r\n//   \"priority\": \"\", // ['low', 'medium', 'high']\r\n//   \"dueDate\":\"\"\r\n// }\r\n\r\n// {\r\n//   \"title\": \"UI improvements\",\r\n//   \"description\": \"Improve UI spacing and colors\",\r\n//   \"priority\": \"low\",\r\n//   \"status\": \"pending\"\r\n// }\r\n\r\n// {\r\n//   \"title\": \"Write documentation\",\r\n//   \"description\": \"Prepare README for task management API\",\r\n//   \"priority\": \"medium\",\r\n//   \"status\": \"pending\",\r\n//   \"dueDate\": \"2025-01-20\"\r\n// }\r\n\r\n\r\n{\r\n  \"title\": \"Finish backend API\",\r\n  \"description\": \"Complete task CRUD and validation\",\r\n  \"priority\": \"high\",\r\n  \"status\": \"in-progress\",\r\n  \"dueDate\": \"2025-01-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{user_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"UI improvements\",\r\n  \"description\": \"Improve UI spacing and colors\",\r\n  \"priority\": \"low\",\r\n  \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/6947d2562e16f1fb0bde6376",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"6947d2562e16f1fb0bde6376"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tasks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{user_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//   \"title\": \"Harry Potter and the Philosopher's Stone\",\r\n//   \"genre\": \"Fantasy\",\r\n//   \"publishedYear\": 1997,\r\n//   \"author\": \"691220820e69728e4c509442\"\r\n// }\r\n\r\n{\r\n  \"title\": \"A Game of Thrones\",\r\n  \"genre\": \"Fantasy\",\r\n  \"publishedYear\": 1996,\r\n  \"author\": \"691220820e69728e4c509442\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Task",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{user_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//   \"title\": \"Harry Potter and the Philosopher's Stone\",\r\n//   \"genre\": \"Fantasy\",\r\n//   \"publishedYear\": 1997,\r\n//   \"author\": \"691220820e69728e4c509442\"\r\n// }\r\n\r\n{\r\n  \"title\": \"A Game of Thrones\",\r\n  \"genre\": \"Fantasy\",\r\n  \"publishedYear\": 1996,\r\n  \"author\": \"691220820e69728e4c509442\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/6947d73587f22462039be5c6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"6947d73587f22462039be5c6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{user_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//   \"title\": \"Harry Potter and the Philosopher's Stone\",\r\n//   \"genre\": \"Fantasy\",\r\n//   \"publishedYear\": 1997,\r\n//   \"author\": \"691220820e69728e4c509442\"\r\n// }\r\n\r\n{\r\n  \"title\": \"A Game of Thrones\",\r\n  \"genre\": \"Fantasy\",\r\n  \"publishedYear\": 1996,\r\n  \"author\": \"691220820e69728e4c509442\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/6947d73587f22462039be5c6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"6947d73587f22462039be5c6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "User Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{user_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"rahul\",\r\n  \"email\": \"rahul@gmail.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{user_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"rahul@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
