@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require('express');
 const connectDB = require('../config/db');
 const requestLogger = require("./middlewares/requestLogger");
+const swaggerUI = require("swagger-ui-express");
+const swaggerSpec = require("../swagger");
 
 
 
@@ -27,6 +29,8 @@ const taskRoutes = require("./routes/task.routes");
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+
 
 
 // Test route

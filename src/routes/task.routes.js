@@ -20,10 +20,42 @@ const router = express.Router();
 // All routes are protected
 router.use(authMiddleware);
 
+/**
+ * @swagger
+ * /api/tasks:
+ *   post:
+ *     summary: Create new task
+ *     tags: [Tasks]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - title
+ *             properties:
+ *               title:
+ *                 type: string
+ *               status:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Task created
+ */
 // CREATE
 router.post("/", createTaskValidator, validate, createTask);
 
-// READ ALL
+/**
+ * @swagger
+ * /api/tasks:
+ *   get:
+ *     summary: Get all tasks
+ *     tags: [Tasks]
+ *     responses:
+ *       200:
+ *         description: List of tasks
+ */
 router.get("/", getAllTasks);
 
 // TASK Statistics
